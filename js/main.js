@@ -115,4 +115,142 @@
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
+
+  // ---------- Scroll reveal ----------
+  const revealTargets = document.querySelectorAll(
+    '.section-head, .pillar, .portfolio-item, .service-card, .partner-category, .testimonial-card, .prose'
+  );
+
+  if ('IntersectionObserver' in window && revealTargets.length) {
+    revealTargets.forEach(function (el) { el.classList.add('pre-reveal'); });
+
+    const revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('pre-reveal');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+    revealTargets.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  // ---------- Portfolio lightbox ----------
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const portfolioItems = Array.prototype.slice.call(document.querySelectorAll('.portfolio-item'));
+  let lbIndex = 0;
+
+  function openLightbox(index) {
+    if (!lightbox || !portfolioItems.length) return;
+    lbIndex = (index + portfolioItems.length) % portfolioItems.length;
+    const item = portfolioItems[lbIndex];
+    const img = item.querySelector('.portfolio-photo');
+    const title = item.querySelector('.portfolio-caption h3');
+    const tag = item.querySelector('.portfolio-caption span');
+    if (!img) return;
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || '';
+    lightboxCaption.textContent = (tag ? tag.textContent + ' — ' : '') + (title ? title.textContent : '');
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
+
+  function lbNext() { openLightbox(lbIndex + 1); }
+  function lbPrev() { openLightbox(lbIndex - 1); }
+
+  if (lightbox && portfolioItems.length) {
+    portfolioItems.forEach(function (item, i) {
+      item.addEventListener('click', function () { openLightbox(i); });
+    });
+
+    const lbCloseBtn = lightbox.querySelector('.lightbox-close');
+    const lbNextBtn = lightbox.querySelector('.lightbox-next');
+    const lbPrevBtn = lightbox.querySelector('.lightbox-prev');
+
+    if (lbCloseBtn) lbCloseBtn.addEventListener('click', closeLightbox);
+    if (lbNextBtn) lbNextBtn.addEventListener('click', lbNext);
+    if (lbPrevBtn) lbPrevBtn.addEventListener('click', lbPrev);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') lbNext();
+      if (e.key === 'ArrowLeft') lbPrev();
+    });
+  }
+
+  // ---------- Service card "What's included" toggle ----------
+  document.querySelectorAll('.details-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const list = btn.nextElementSibling;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      if (list) list.classList.toggle('is-open', !isOpen);
+    });
+  });
+
+  // ---------- Supplier category accordion ----------
+  document.querySelectorAll('.partner-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const list = btn.parentElement.querySelector('.partner-list');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      if (list) list.classList.toggle('is-open', !isOpen);
+    });
+  });
+
+  // ---------- Quote request form ----------
+  const quoteForm = document.getElementById('quote-form');
+  const quoteStatus = document.getElementById('quote-status');
+
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!quoteForm.checkValidity()) {
+        quoteForm.classList.add('was-validated');
+        quoteForm.reportValidity();
+        return;
+      }
+
+      const name = quoteForm.name.value.trim();
+      const email = quoteForm.email.value.trim();
+      const phone = quoteForm.phone.value.trim();
+      const project = quoteForm.project.value;
+      const message = quoteForm.message.value.trim();
+
+      const subject = 'Quote Request — ' + project;
+      const bodyLines = [
+        'Name: ' + name,
+        'Email: ' + email,
+        'Phone: ' + (phone || 'N/A'),
+        'Project Type: ' + project,
+        '',
+        'Project Details:',
+        message
+      ];
+      const mailto = 'mailto:info@weststarhomes.ca'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+      window.location.href = mailto;
+      if (quoteStatus) {
+        quoteStatus.textContent = 'Opening your email app to send this request…';
+      }
+    });
+  }
 })();

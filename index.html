@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
 </head>
 <body>
 
@@ -24,11 +25,7 @@
   <header class="site-header">
     <div class="container">
       <a href="#home" class="brand">
-        <span class="brand-mark">WS</span>
-        <span class="brand-text">
-          West Star Home LTD
-          <small>Build · Renovate · Consult</small>
-        </span>
+        <img src="images/logo.jpg" alt="West Star Homes — Building Quality. Creating Home." class="brand-mark" />
       </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -139,45 +136,43 @@
 
         <div class="portfolio-grid">
           <div class="portfolio-item p-1">
-            <div class="portfolio-placeholder">Project Photo</div>
+            <img class="portfolio-photo" src="images/portfolio-1.jpg" alt="Solar-ready craftsman bungalow with covered wraparound porch" />
+            <div class="portfolio-zoom" aria-hidden="true">⤢ View Photo</div>
             <div class="portfolio-caption">
               <span>New Construction</span>
-              <h3>Modern Family Home</h3>
+              <h3>Solar-Ready Craftsman Bungalow</h3>
             </div>
           </div>
           <div class="portfolio-item p-2">
-            <div class="portfolio-placeholder">Project Photo</div>
+            <img class="portfolio-photo" src="images/portfolio-2.jpg" alt="Two-story modern home with floor-to-ceiling glass and wood siding" />
+            <div class="portfolio-zoom" aria-hidden="true">⤢ View Photo</div>
             <div class="portfolio-caption">
-              <span>Renovation</span>
-              <h3>Full Kitchen Remodel</h3>
+              <span>New Construction</span>
+              <h3>Modern Two-Story Glass Great Room</h3>
             </div>
           </div>
           <div class="portfolio-item p-3">
-            <div class="portfolio-placeholder">Project Photo</div>
+            <img class="portfolio-photo" src="images/portfolio-3.jpg" alt="Angular contemporary home with corner glass and rooftop solar" />
+            <div class="portfolio-zoom" aria-hidden="true">⤢ View Photo</div>
             <div class="portfolio-caption">
-              <span>Basement Suite</span>
-              <h3>Secondary Suite Build-Out</h3>
+              <span>New Construction</span>
+              <h3>Contemporary Corner-Lot Build</h3>
             </div>
           </div>
           <div class="portfolio-item p-4">
-            <div class="portfolio-placeholder">Project Photo</div>
+            <img class="portfolio-photo" src="images/portfolio-4.jpg" alt="Multi-level modern home on a sloped lot with rooftop deck" />
+            <div class="portfolio-zoom" aria-hidden="true">⤢ View Photo</div>
             <div class="portfolio-caption">
               <span>New Construction</span>
-              <h3>Custom Bungalow</h3>
+              <h3>Multi-Level Hillside Retreat</h3>
             </div>
           </div>
           <div class="portfolio-item p-5">
-            <div class="portfolio-placeholder">Project Photo</div>
+            <img class="portfolio-photo" src="images/portfolio-5.jpg" alt="Traditional gray craftsman ranch with twin gables" />
+            <div class="portfolio-zoom" aria-hidden="true">⤢ View Photo</div>
             <div class="portfolio-caption">
-              <span>Renovation</span>
-              <h3>Whole-Home Refresh</h3>
-            </div>
-          </div>
-          <div class="portfolio-item p-6">
-            <div class="portfolio-placeholder">Project Photo</div>
-            <div class="portfolio-caption">
-              <span>Basement Suite</span>
-              <h3>Legal Rental Conversion</h3>
+              <span>New Construction</span>
+              <h3>Classic Craftsman Ranch</h3>
             </div>
           </div>
         </div>
@@ -216,7 +211,8 @@
             <div class="service-icon">⌂</div>
             <h3>New Home Construction</h3>
             <p>Custom builds designed around how you actually live, delivered turnkey by a team you can talk to directly.</p>
-            <ul>
+            <button class="details-toggle" aria-expanded="false">What's included <span class="chevron">⌄</span></button>
+            <ul class="details-list">
               <li>Site planning and permits</li>
               <li>Custom architectural design</li>
               <li>Full-service general contracting</li>
@@ -228,7 +224,8 @@
             <div class="service-icon">✎</div>
             <h3>Home Renovations</h3>
             <p>Kitchens, bathrooms, additions, and whole-home refreshes that update your space without the usual chaos.</p>
-            <ul>
+            <button class="details-toggle" aria-expanded="false">What's included <span class="chevron">⌄</span></button>
+            <ul class="details-list">
               <li>Kitchen and bathroom remodels</li>
               <li>Additions and extensions</li>
               <li>Interior refreshes and finishes</li>
@@ -240,7 +237,8 @@
             <div class="service-icon">▤</div>
             <h3>Basement Suites</h3>
             <p>Legal secondary suites designed for long-term rental income, in-law living, or a lower-level retreat.</p>
-            <ul>
+            <button class="details-toggle" aria-expanded="false">What's included <span class="chevron">⌄</span></button>
+            <ul class="details-list">
               <li>Legal suite compliance</li>
               <li>Separate entrances and utilities</li>
               <li>Rental-ready finishes</li>
@@ -252,12 +250,121 @@
             <div class="service-icon">◈</div>
             <h3>Consulting</h3>
             <p>Independent construction and renovation advice for homeowners, investors, and builders working on their own.</p>
-            <ul>
+            <button class="details-toggle" aria-expanded="false">What's included <span class="chevron">⌄</span></button>
+            <ul class="details-list">
               <li>Pre-purchase inspections</li>
               <li>Feasibility and budget reviews</li>
               <li>Design and layout consulting</li>
               <li>Project oversight</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PARTNERS ============ -->
+    <section id="partners" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">Who We Work With</span>
+          <h2>Our Partners</h2>
+          <p class="section-lead">Trusted Saskatchewan suppliers we rely on for materials, components, and building products.</p>
+        </div>
+
+        <div class="partners-grid">
+          <div class="partner-category">
+            <button class="partner-toggle" aria-expanded="false">
+              <h3>Full-Service Building Material Suppliers</h3>
+              <span class="chevron">⌄</span>
+            </button>
+            <ul class="partner-list">
+              <li><strong>Security Building Supplies</strong> (Saskatoon, Regina) — one of Saskatchewan's largest independent suppliers for professional builders and homeowners; lumber, doors, windows, decking, fencing, siding, and contractor services.</li>
+              <li><strong>J&amp;H Builder's Warehouse</strong> (Saskatoon) — family-owned supplier with lumber, kitchens, flooring, windows, roofing, and renovation materials.</li>
+              <li><strong>Constrx Building Products</strong> (Saskatoon / Corman Park) — framing packages, trusses, wall panels, lumber, roofing, and commercial building products.</li>
+              <li><strong>Adams Lumber</strong> (Saskatoon) — local lumber yard specializing in building packages, decks, garages, windows, and doors.</li>
+              <li><strong>Saskatoon Co-op Home Centre</strong> (Ave C) — full-service building materials and contractor supply.</li>
+              <li><strong>Zak's Home Hardware Building Centre</strong> — building materials, hardware, lumber, and contractor supplies.</li>
+            </ul>
+          </div>
+
+          <div class="partner-category">
+            <button class="partner-toggle" aria-expanded="false">
+              <h3>Component Manufacturers</h3>
+              <span class="chevron">⌄</span>
+            </button>
+            <ul class="partner-list">
+              <li><strong>Nu-Fab Building Products</strong> (Regina &amp; Saskatoon) — roof trusses, floor systems, wall panels, engineered wood, house packages, garages, and cottages.</li>
+              <li><strong>Timberstone Distribution Saskatoon</strong> — exterior building envelope products, masonry, insulation, cladding, and specialty finishes.</li>
+              <li><strong>Kenroc Building Materials Co. Ltd.</strong> — drywall, insulation, steel framing, EIFS, ceilings, and roofing systems.</li>
+              <li><strong>Foundation Building Materials</strong> — contractor-focused drywall, insulation, metal framing, and finishing products.</li>
+            </ul>
+          </div>
+
+          <div class="partner-category">
+            <button class="partner-toggle" aria-expanded="false">
+              <h3>Specialty Suppliers</h3>
+              <span class="chevron">⌄</span>
+            </button>
+            <ul class="partner-list">
+              <li><strong>Burron Lumber</strong> — lumber and structural materials.</li>
+              <li><strong>A to Z Building Materials</strong> — doors, fireplaces, renovation products, and specialty building materials.</li>
+              <li><strong>JDS Building Supply</strong> (Saskatoon) — stone veneer, waterproofing, metal siding, and exterior insulation systems.</li>
+              <li><strong>Core Building Products</strong> (Saskatoon) — insulated concrete forms (ICF), insulation, and foundation systems.</li>
+            </ul>
+          </div>
+
+          <div class="partner-category">
+            <button class="partner-toggle" aria-expanded="false">
+              <h3>Regional Suppliers Across Saskatchewan</h3>
+              <span class="chevron">⌄</span>
+            </button>
+            <ul class="partner-list">
+              <li><strong>Warman Home Centre</strong> (Warman)</li>
+              <li><strong>Econo Timber Mart</strong> (Prince Albert)</li>
+              <li><strong>Westrum Lumber Timbermart</strong> (Weyburn)</li>
+              <li><strong>Wood Country Building Services Ltd.</strong> (McLean)</li>
+              <li><strong>Ace Lumber &amp; Building Supplies</strong> (Meadow Lake)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section id="testimonials" class="section section-warm">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">What Clients Say</span>
+          <h2>Testimonials</h2>
+          <p class="section-lead">Placeholder section — swap these in for real client quotes and names.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"Placeholder testimonial quote. Replace with a real client quote describing their experience working with West Star Home LTD."</p>
+            <div class="testimonial-author">
+              <strong>Client Name</strong>
+              <span>New Construction — Saskatoon, SK</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"Placeholder testimonial quote. Replace with a real client quote describing their experience working with West Star Home LTD."</p>
+            <div class="testimonial-author">
+              <strong>Client Name</strong>
+              <span>Home Renovation — Regina, SK</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">"Placeholder testimonial quote. Replace with a real client quote describing their experience working with West Star Home LTD."</p>
+            <div class="testimonial-author">
+              <strong>Client Name</strong>
+              <span>Basement Suite — Warman, SK</span>
+            </div>
           </div>
         </div>
       </div>
@@ -288,8 +395,56 @@
       </div>
     </section>
 
+    <!-- ============ REQUEST A QUOTE ============ -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">Let's Talk</span>
+          <h2>Request a Quote</h2>
+          <p class="section-lead">Tell us a bit about your project and we'll get back to you to schedule a no-obligation conversation.</p>
+        </div>
+
+        <form class="quote-form" id="quote-form" novalidate>
+          <div class="quote-form-row">
+            <div class="quote-field">
+              <label for="q-name">Name</label>
+              <input type="text" id="q-name" name="name" required autocomplete="name" />
+              <span class="quote-error">Please enter your name.</span>
+            </div>
+            <div class="quote-field">
+              <label for="q-email">Email</label>
+              <input type="email" id="q-email" name="email" required autocomplete="email" />
+              <span class="quote-error">Please enter a valid email address.</span>
+            </div>
+          </div>
+          <div class="quote-form-row">
+            <div class="quote-field">
+              <label for="q-phone">Phone (optional)</label>
+              <input type="tel" id="q-phone" name="phone" autocomplete="tel" />
+            </div>
+            <div class="quote-field">
+              <label for="q-project">Project Type</label>
+              <select id="q-project" name="project">
+                <option>New Construction</option>
+                <option>Home Renovation</option>
+                <option>Basement Suite</option>
+                <option>Consulting</option>
+              </select>
+            </div>
+          </div>
+          <div class="quote-field">
+            <label for="q-message">Project Details</label>
+            <textarea id="q-message" name="message" rows="4" required></textarea>
+            <span class="quote-error">Please tell us a bit about your project.</span>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Request</button>
+          <p class="quote-status" id="quote-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
     <!-- ============ CONTACT STRIP ============ -->
-    <section id="contact" class="contact-strip">
+    <section class="contact-strip">
       <div class="container">
         <div>
           <h2>Ready to start your project?</h2>
@@ -336,6 +491,17 @@
       </div>
     </div>
   </footer>
+
+  <!-- Portfolio lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" aria-label="Close photo viewer">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous photo">&lsaquo;</button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-nav lightbox-next" aria-label="Next photo">&rsaquo;</button>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
