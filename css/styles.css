@@ -49,6 +49,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ---------- Background watermark ---------- */
+.bg-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(55vw, 640px);
+  height: auto;
+  opacity: 0.07;
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -111,6 +126,40 @@ p {
 
 .topbar a:hover {
   color: var(--white);
+}
+
+/* ---------- Logo banner ---------- */
+.logo-banner {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.logo-banner .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.logo-banner-mark {
+  height: 150px;
+  width: auto;
+  max-width: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.14));
+}
+
+.logo-banner-tagline {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 /* ---------- Header / nav ---------- */
@@ -1174,6 +1223,10 @@ p {
 
   .nav-toggle {
     display: block;
+  }
+
+  .logo-banner-mark {
+    height: 90px;
   }
 
   .contact-strip .container {
