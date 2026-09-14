@@ -111,9 +111,30 @@ p {
 .topbar .container {
   display: flex;
   gap: 1.5rem;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.topbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  background: linear-gradient(90deg, var(--gold), var(--green), #c98fd6, var(--gold-dark), var(--green-dark), var(--gold));
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 14px rgba(201, 164, 74, 0.45);
+  filter: blur(0.3px);
+  animation: topbar-shimmer 7s linear infinite, topbar-float 3.2s ease-in-out infinite;
+}
+
+.topbar-contacts {
+  display: flex;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -128,38 +149,20 @@ p {
   color: var(--white);
 }
 
-/* ---------- Logo banner ---------- */
-.logo-banner {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  text-align: center;
+@keyframes topbar-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
-.logo-banner .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding-top: 2rem;
-  padding-bottom: 1.5rem;
+@keyframes topbar-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
 }
 
-.logo-banner-mark {
-  height: 150px;
-  width: auto;
-  max-width: 90%;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.14));
-}
-
-.logo-banner-tagline {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+@media (prefers-reduced-motion: reduce) {
+  .topbar-brand {
+    animation: none;
+  }
 }
 
 /* ---------- Header / nav ---------- */
@@ -183,8 +186,9 @@ p {
 
 .brand {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
   font-family: var(--font-heading);
   font-size: 1.4rem;
   color: var(--black);
@@ -200,6 +204,16 @@ p {
   width: auto;
   max-width: 220px;
   object-fit: contain;
+}
+
+.brand-tagline {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .nav-toggle {
@@ -1223,10 +1237,6 @@ p {
 
   .nav-toggle {
     display: block;
-  }
-
-  .logo-banner-mark {
-    height: 90px;
   }
 
   .contact-strip .container {
